@@ -1,0 +1,40 @@
+//https://github.com/EventedMind/iron-router/blob/dev/DOCS.md
+
+Router.map(function () {
+  this.route('home');
+});
+
+
+
+Router.map(function(){
+  this.route('home');
+});
+
+
+Router.routes[home];
+
+
+Router.map(function(){
+this.route('home', {
+    path : '/'
+  });
+});
+
+
+
+Router.map(function(){
+  this.route('posts', {
+    path : '/posts'
+  });
+  
+  this.route('showPost', {
+  path : '/posts/:_id'
+  });
+  
+  this.route('twoSegments', {
+  path : '/posts/:param1/:param2'
+  });
+  
+});
+
+
