@@ -1,5 +1,5 @@
 <head>
-<script src="meteor.github.io/blaze/blaze-0.1.js"></script>
+
 <script type="text/spacebars" name="main">
   <p> <b>Contacts</b> <button id="toggle-order"> {{order}} </button> </p>
   {{#each contacts}}
@@ -12,6 +12,8 @@
   </form>
   
 </script>
+
+<script src="meteor.github.io/blaze/blaze-0.1.js"></script>
 
 <script>
   var names = Blaze.Var(["nik", "pic", "rik", "tik"]);
