@@ -1,0 +1,17 @@
+<head>
+<script type="text/spacebars" name="main"> You spent {{seconds}} on this page. </script>
+<script src="http://meteor.github.io/blaze/blaze-0.1.js"> </script>
+<script>
+var counter = new Blaze.Var(0);
+
+Template.main.helpers({
+seconds : function(){
+  return counter.get();}
+});
+
+setInterval(function(){
+  counter.set(counter.get() + 1);
+},1000);
+</script>
+
+</head>
