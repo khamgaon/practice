@@ -1,3 +1,25 @@
 <head>
+<title>Blaze example 2</title>
+<script src"http://meteor.github.io/blaze/blaze-0.1.js"></script>
 
+<script type="text/spacebars" name="main">
+  <button id="first">{{a}}</button> &times; 
+  <button id="second">{{a}}</button> = {{c}}
+</script>
+
+<script>
+  var number1 = new Blaze.Var(1);
+  var number2 = new Blaze.Var(1);
+  
+  Template.main.helpers({
+    a : function(){return number1.get();},
+    b : function(){return number2.get();},
+    c : function(){return number1.get()*number2.get();}
+  });
+  
+  Template.main.events({
+    'click #first' : function(){return number1.set(number1.get()+1);},
+    'click #second': function(){return number2.set(number2.get()+1);}
+  });
+</script>
 </head>
