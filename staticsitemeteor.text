@@ -1,0 +1,77 @@
+html
+
+<head>
+  <title>basic</title>
+</head>
+
+<body>
+</body>
+
+<template name="home">
+  {{> Nav}}
+
+  <h1>Home</h1>
+
+  <p>
+    Data Title
+  </p>
+</template>
+
+<template name="one">
+  {{> Nav}}
+
+  <h1>Page One</h1>
+</template>
+
+<template name="two">
+  {{> Nav}}
+
+  <h1>Page Two</h1>
+</template>
+
+<template name="Nav">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/one">Page One</a>
+          </li>
+          <li>
+            <a href="/two">Page Two</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</template>
+
+
+
+
+js
+
+
+
+
+Router.route('home', {path: '/'});
+
+Router.route('one', {path : '/one'});
+
+Router.route('two', {path : '/two'});
