@@ -1,0 +1,18 @@
+#######template.html
+
+{{> welcomeMessage}}
+
+
+<template name="welcomeMessage">
+Hello {{name}} , {{greetings}} !
+</template>
+
+
+
+######template.js
+Template.welcomeMessage.helpers({
+name : function(){
+        return Meteor.user && Meteor.user().username;
+      },
+greetings : "how are you?"      
+});
