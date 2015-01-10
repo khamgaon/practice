@@ -3,4 +3,5 @@
 3. if (array[guess] === target) return
     else if (array[guess] < target) min = guess + 1
       else max = guess - 1
-4. Go back to step 1
+4. Go back to step 1 while max > min
+
