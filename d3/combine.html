@@ -2,31 +2,43 @@
   <head>
     <title>d3</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <style>
+      circle {
+        fill : none;
+        stroke-width : 2px;
+      }
+    </style>
   </head>
   <body>
     <script charset="utf-8">
-      var circleRadius = 5;
-      var outerHeight = '100%';
-      var outerWidth = '100%';
+      var rMin = 5;
+      var rMax = 10;
+      var outerHeight = '500';
+      var outerWidth = '500';
       var xColumn = 'Accounts';
       var yColumn = 'Submissions';
-
+      var rColumn = 'Comments';
+      var colorColumn = 'Subreddits'
       var svg = d3.select('body').append('svg').attr('height', outerHeight).attr('width', outerWidth);
 
-      var xScale = d3.scale.linear().range(['100%','0'])
-      var yScale = d3.scale.linear().range(['0', '100%'])
-
+      var xScale = d3.scale.linear().range(['0',outerWidth])
+      var yScale = d3.scale.linear().range([outerHeight, '0'])
+      var rScale = d3.scale.linear().range([rMin, rMax])
+      var colorScale = d3.scale.category10();
       function render(data) {
 
         xScale.domain(d3.extent(data, d => +d[xColumn]));
         yScale.domain(d3.extent(data, d => +d[yColumn]));
+        rScale.domain(d3.extent(data, d => +d[rColumn]));
         //bind
         var circles = svg.selectAll('circle').data(data);
         //enter
-        circles.enter().append('circle').attr('r', circleRadius);
+        circles.enter().append('circle');
         //update
         circles.attr('cx', d => xScale(+d[xColumn]));
         circles.attr('cy', d => yScale(+d[yColumn]));
+        circles.attr('r', d => rScale(+d[rColumn]));
+        circles.attr('stroke', d => colorScale(+d[colorColumn]));
         //exit
         circles.exit().remove()
       }
