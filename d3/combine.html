@@ -5,22 +5,28 @@
   </head>
   <body>
     <script charset="utf-8">
+      var circleRadius = 5;
+      var outerHeight = '100%';
+      var outerWidth = '100%';
+      var xColumn = 'Accounts';
+      var yColumn = 'Submissions';
 
-      var svg = d3.select('body').append('svg').attr('height', '100%').attr('width', '100%');
+      var svg = d3.select('body').append('svg').attr('height', outerHeight).attr('width', outerWidth);
 
-      var xScale = yScale = d3.scale.linear().range(['0', '100%'])
+      var xScale = d3.scale.linear().range(['100%','0'])
+      var yScale = d3.scale.linear().range(['0', '100%'])
 
       function render(data) {
 
-        xScale.domain(d3.extent(data, d => +d.Accounts));
-        yScale.domain(d3.extent(data, d => +d.Submissions));
+        xScale.domain(d3.extent(data, d => +d[xColumn]));
+        yScale.domain(d3.extent(data, d => +d[yColumn]));
         //bind
         var circles = svg.selectAll('circle').data(data);
         //enter
-        circles.enter().append('circle').attr('r', 10);
+        circles.enter().append('circle').attr('r', circleRadius);
         //update
-        circles.attr('cx', d => xScale(+d.Accounts));
-        circles.attr('cy', d => yScale(+d.Submissions));
+        circles.attr('cx', d => xScale(+d[xColumn]));
+        circles.attr('cy', d => yScale(+d[yColumn]));
         //exit
         circles.exit().remove()
       }
