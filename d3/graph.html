@@ -14,15 +14,15 @@
         //enter
         circles.enter().append('circle').attr('r', 10);
         //update
-        circles.attr('cx', d => d.x);
-        circles.attr('cy', d => d.y);
+        circles.attr('cx', d => Math.sqrt(d.Accounts));
+        circles.attr('cy', d => Math.sqrt(d.Submissions));
         //exit
         circles.exit().remove()
       }
 
-      var data = [{x : 100, y : 100}, {x : 130, y : 130}, {x : 180, y : 180}]
-
-      render(data);
+      d3.csv('d3.csv', function(data){
+        render(data);
+      })
     </script>
   </body>
 </html>
