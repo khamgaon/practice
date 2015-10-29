@@ -6,8 +6,7 @@
   <body>
     <script charset="utf-8">
       d3.csv('d3.csv', function(data){
-          console.log(d3.min(data, d => +d.Accounts));
-          console.log(d3.max(data, d => +d.Accounts));
+          console.log(d3.extent(data, d => +d.Accounts));
         })
     </script>
   </body>
