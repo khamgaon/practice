@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>d3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <script charset="utf-8">
+
+      var svg = d3.select('body').append('svg').attr('height', '100%').attr('width', '100%');
+
+      var xScale = yScale = d3.scale.linear().range(['0', '100%'])
+
+      function render(data) {
+
+        xScale.domain(d3.extent(data, d => +d.Accounts));
+        yScale.domain(d3.extent(data, d => +d.Submissions));
+        //bind
+        var circles = svg.selectAll('circle').data(data);
+        //enter
+        circles.enter().append('circle').attr('r', 10);
+        //update
+        circles.attr('cx', d => xScale(+d.Accounts));
+        circles.attr('cy', d => yScale(+d.Submissions));
+        //exit
+        circles.exit().remove()
+      }
+
+      d3.csv('d3.csv', render)
+    </script>
+  </body>
+</html>
