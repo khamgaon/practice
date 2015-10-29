@@ -14,17 +14,38 @@
       .attr('height', 250);
 
       function render(data, color) {
+        //Bind Data
         var rects = svg.selectAll('rect').data(data);
+
+        //Enter
         rects.enter().append('rect')
-          .attr('x', scale)
           .attr('y', 50)
           .attr('width', 20)
-          .attr('height', 20)
-          .attr('fill', color);
-      }
+          .attr('height', 20);
 
-      render([1, 2, 3], 'red');
-      render([1, 2, 3, 4, 5], 'blue');
+        //Update
+        rects
+          .attr('x', scale)
+          .attr('fill', color);
+
+        //Exit
+        rects
+          .exit()
+          .remove();
+
+      }
+      setTimeout(function(){
+        render([1, 2, 3], 'red');
+      }, 1)
+
+      setTimeout(function(){
+        render([1, 2, 3, 4, 5], 'blue');
+      }, 1000)
+
+      setTimeout(function(){
+        render([1, 2], 'green');
+      }, 2000)
+
 
     </script>
   </body>
