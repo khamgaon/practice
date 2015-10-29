@@ -6,9 +6,17 @@
   <body>
 
     <script charset="utf-8">
-      d3.csv('d3.csv', function(data){
-        console.log(data);
+      d3.csv('d3.csv', function(arr){
+        for (var i = 0; i < arr.length; i++) {
+          console.log(arr[i].Accounts + ", "  + arr[i].Submissions);
+        }
       })
+
+      function type(d) {
+        d.x = +d.x;
+        d.y = +d.y;
+        return d;
+      }
     </script>
   </body>
 </html>
