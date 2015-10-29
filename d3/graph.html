@@ -20,7 +20,12 @@
         circles.exit().remove()
       }
 
-      d3.csv('d3.csv',render)
+      function type(d) {
+        d.x = +d.x;
+        d.y = +d.y;
+        return d;
+      }
+      d3.csv('d3.csv', type, render)
     </script>
   </body>
 </html>
