@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-app",
+  "version": "1.0.0",
+  "description": "start nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nikhil daga",
+  "license": "MIT",
+  "dependencies": {
+    "jsx": "^0.9.89",
+    "react": "^0.14.1"
+  }
+}
