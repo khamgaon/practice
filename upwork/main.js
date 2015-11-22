@@ -15,7 +15,7 @@ var SelectShirt = React.createClass({
               <option value="xl">Extra Large</option>
             </select>
              <div>
-               <img src={"/shirt-" + this.state.selected + ".png"} />
+               <img src={"images/shirt-" + this.state.selected + ".png"} />
              </div>
           </div>
         );
