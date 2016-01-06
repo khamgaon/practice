@@ -48,7 +48,7 @@
   Bundle using Webpack with appropriate chunks, Gzip
   
 * How many resources will a browser download from a given domain at a time?
-  1
+  2-8
 
 * What are the exceptions?
 
